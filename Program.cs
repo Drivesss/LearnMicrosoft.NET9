@@ -312,14 +312,14 @@ namespace Learn2_.NET9
                             if ((ourAnimals[i, 3] == "Nickname: " ||
                                 ourAnimals[i, 3] == "Nickname: tbd") &&
                                 ourAnimals[i, 0] != "ID #: ")
-                            { 
+                            {
                                 do
                                 {
                                     string petNickname;
                                     Console.WriteLine($"Enter a nickname for {ourAnimals[i, 0]}");
                                     readResult = Console.ReadLine();
-                                    
-                                    if (readResult!=null)
+
+                                    if (readResult != null)
                                     {
                                         petNickname = readResult.ToLower();
                                         ourAnimals[i, 3] = "Nickname: " + petNickname;
@@ -344,9 +344,31 @@ namespace Learn2_.NET9
                                         ourAnimals[i, 4] = "Physical description: " + animalPhysicalDescription;
 
                                     }
-                                } while (ourAnimals[i, 4] == "Physical description: " && ourAnimals[i, 0] != "ID #: ");
+                                } while (ourAnimals[i, 4] == "Physical description: " ||
+                                ourAnimals[i, 4] == "Physical description: tbd");
 
                             }
+
+                            if ((ourAnimals[i, 5] == "Personality: " ||
+                                ourAnimals[i, 5] == "Personality: tbd") &&
+                                ourAnimals[i, 0] != "ID #: ")
+                            {
+                                do
+                                {
+                                    Console.WriteLine($"Enter a personality description for {ourAnimals[i, 0]} (likes or dislikes, tricks, energy level)");
+                                    readResult = Console.ReadLine();
+
+                                    if (readResult != null)
+                                    {
+                                        string petPersonalityDescription = readResult.ToLower();
+                                        ourAnimals[i, 5] = "Personality: " + petPersonalityDescription;
+
+                                    }
+                                } while (ourAnimals[i, 5] == "Personality: " ||
+                                ourAnimals[i, 5] == "Personality: tbd");
+
+                            }
+
 
                         }
 
@@ -355,9 +377,13 @@ namespace Learn2_.NET9
                         for (int i = 0; i < maxPets; i++)
                         {
                             if ((ourAnimals[i, 2] == "Age: ?" ||
+                                ourAnimals[i, 3] == "Nickname: " ||
+                                ourAnimals[i, 3] == "Nickname: tbd" ||
                                 ourAnimals[i, 4] == "Physical description: " ||
-                                ourAnimals[i, 4] == "Physical description: tbd") &&
-                                ourAnimals[i, 0] != "ID #: " )
+                                ourAnimals[i, 4] == "Physical description: tbd" ||
+                                ourAnimals[i, 5] == "Personality: " ||
+                                ourAnimals[i, 5] == "Personality: tbd") &&
+                                ourAnimals[i, 0] != "ID #: ")
                             {
                                 allFieldsAreFilled = false;
                             }
